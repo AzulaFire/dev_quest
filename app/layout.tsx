@@ -2,8 +2,9 @@ import React from 'react';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 // eslint-disable-next-line camelcase
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk, The_Girl_Next_Door } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/context/ThemeProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -17,10 +18,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title:
-    'DevQuest: Reflecting the journey of developers seeking answers and solutions.',
+  title: '{{ DevQuest }}',
   description:
-    'A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and much more.',
+    'A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and much more. DevQuest: Reflecting the journey of developers seeking answers and solutions.',
   icons: {
     icon: '/assets/images/site-logo.svg',
   },
@@ -32,20 +32,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      appearance={{
-        elements: {
-          formButtonPrimary: 'primary-gradient',
-          footerActionLink: 'primary-text-gradient hover:text-primary-500',
-        },
-      }}
-    >
-      <html lang='en'>
-        <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
-          <h1 className='h1-bold'>This is a piece of text</h1>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang='en'>
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+        <ClerkProvider
+          appearance={{
+            elements: {
+              formButtonPrimary: 'primary-gradient',
+              footerActionLink: 'primary-text-gradient hover:text-primary-500',
+            },
+          }}
+        >
+          <ThemeProvider>{children}</ThemeProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
