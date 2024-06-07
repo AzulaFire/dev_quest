@@ -2,7 +2,7 @@ import React from 'react';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 // eslint-disable-next-line camelcase
-import { Inter, Space_Grotesk, The_Girl_Next_Door } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeProvider';
 
@@ -18,9 +18,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: '{{ DevQuest }}',
+  title: 'TechnoFlow',
   description:
-    'A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and much more. DevQuest: Reflecting the journey of developers seeking answers and solutions.',
+    'A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and much more. TechnoFlow: Reflecting the journey of developers seeking answers and solutions.',
   icons: {
     icon: '/assets/images/site-logo.svg',
   },
