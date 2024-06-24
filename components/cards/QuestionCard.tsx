@@ -4,18 +4,18 @@ import Metric from '../shared/Metric';
 import { formatAndDivideNumber, getTimestamp } from '@/lib/utils';
 
 interface QuestionProps {
-  _id: number;
+  _id: string;
   title: string;
   tags: {
-    _id: number;
+    _id: string;
     name: string;
   }[];
   author: {
-    _id: number;
+    _id: string;
     name: string;
     picture: string;
   };
-  upvotes: number;
+  upvotes: string[];
   views: number;
   answers: Array<object>;
   createdAt: Date;
@@ -63,7 +63,7 @@ const QuestionCard = ({
         <Metric
           imgUrl='/assets/icons/like.svg'
           alt='Upvote'
-          value={formatAndDivideNumber(upvotes)}
+          value={formatAndDivideNumber(upvotes.length)}
           title='Votes'
           textStyles='small-medium text-dark400_light800'
         />
